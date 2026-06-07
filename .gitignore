@@ -1,0 +1,23 @@
+# Environment Variables (SENSITIVE)
+.env
+.env.local
+
+# Databases
+*.db
+*.sqlite
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Build Output
+dist/
+build/
+.cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
