@@ -28,7 +28,7 @@ export function PageHeader({
   onBack?: () => void;
 }) {
   return (
-    <div className="px-6 sm:px-10 pt-8 pb-6 border-b border-black/8">
+    <div className="px-5 sm:px-10 pt-8 pb-6 border-b border-black/8">
       {onBack && (
         <button
           onClick={onBack}
@@ -76,7 +76,7 @@ export function NavBar({
 
   return (
     <nav
-      className="sticky top-0 z-30 bg-white border-b border-black/8 flex items-center justify-between px-6 sm:px-10 py-4"
+      className="sticky top-0 z-30 bg-white border-b border-black/8 flex items-center justify-between px-5 sm:px-10 py-4"
       style={{ fontFamily: 'var(--font-body)' }}
     >
       {/* Logo */}
@@ -294,9 +294,9 @@ export function Notice({
 
 export function Metric({ label, value }: { label: string; value: string | number }) {
   return (
-    <div className="border border-black/8 p-4">
-      <div className="text-[11px] uppercase tracking-widest text-black/40 mb-1">{label}</div>
-      <div className="text-[28px] font-medium text-black leading-none" style={{ fontFamily: 'var(--font-heading)' }}>
+    <div className="border border-black/8 p-3 sm:p-4">
+      <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-black/40 mb-1">{label}</div>
+      <div className="text-[20px] sm:text-[28px] font-medium text-black leading-none" style={{ fontFamily: 'var(--font-heading)' }}>
         {value}
       </div>
     </div>

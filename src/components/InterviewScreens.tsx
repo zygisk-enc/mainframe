@@ -55,7 +55,7 @@ export function InterviewSetupScreen() {
     <Screen>
       <NavBar username={state.user?.username || ''} onNavigate={nav} onLogout={() => dispatch({ type: 'LOGOUT' })} />
 
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-2xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-2xl mx-auto w-full">
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.05 }} className="mb-1">
           New Interview.
         </div>
@@ -194,7 +194,7 @@ export function InterviewSessionScreen() {
         />
       </div>
 
-      <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full px-6 sm:px-10 py-10">
+      <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full px-5 sm:px-10 py-10">
         {/* Question counter */}
         <div className="text-[11px] uppercase tracking-widest text-black/30 mb-6">
           Question {currentQIndex + 1} of {total}

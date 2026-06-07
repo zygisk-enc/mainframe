@@ -81,7 +81,7 @@ export function ReportScreen() {
     <Screen>
       <NavBar username={state.user?.username || ''} onNavigate={nav} onLogout={() => dispatch({ type: 'LOGOUT' })} />
 
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
         {/* Percentage Score */}
         <div className="mb-2 flex items-baseline gap-2">
           <span
@@ -145,7 +145,7 @@ export function HistoryScreen() {
   return (
     <Screen>
       <NavBar username={state.user?.username || ''} onNavigate={nav} onLogout={() => dispatch({ type: 'LOGOUT' })} />
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.05 }} className="mb-1">
           History.
         </div>
@@ -191,7 +191,7 @@ export function AnalyticsScreen() {
   return (
     <Screen>
       <NavBar username={state.user?.username || ''} onNavigate={nav} onLogout={() => dispatch({ type: 'LOGOUT' })} />
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-4xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-4xl mx-auto w-full">
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.05 }} className="mb-1">
           Analytics.
         </div>
@@ -266,7 +266,7 @@ export function RecommendationsScreen() {
   return (
     <Screen>
       <NavBar username={state.user?.username || ''} onNavigate={nav} onLogout={() => dispatch({ type: 'LOGOUT' })} />
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.05 }} className="mb-1">
           Learning Plan.
         </div>
@@ -353,7 +353,7 @@ export function ProfileScreen() {
   return (
     <Screen>
       <NavBar username={state.user?.username || ''} onNavigate={nav} onLogout={() => dispatch({ type: 'LOGOUT' })} />
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-3xl mx-auto w-full">
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.05 }} className="mb-1">
           Profile.
         </div>

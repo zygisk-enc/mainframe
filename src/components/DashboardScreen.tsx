@@ -33,7 +33,7 @@ export function DashboardScreen() {
         onLogout={() => dispatch({ type: 'LOGOUT' })}
       />
 
-      <div className="px-6 sm:px-10 pt-10 pb-16 max-w-4xl mx-auto w-full">
+      <div className="px-5 sm:px-10 pt-10 pb-16 max-w-4xl mx-auto w-full">
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.05 }} className="mb-1">
           Hey, {name}.
         </div>
