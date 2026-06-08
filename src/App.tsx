@@ -1,4 +1,5 @@
-import { AppProvider, useApp } from './store';
+import { useEffect } from 'react';
+import { AppProvider, useApp, type Screen } from './store';
 import { VideoBackground } from './components/VideoBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -8,8 +9,60 @@ import { InterviewSetupScreen, InterviewSessionScreen } from './components/Inter
 import { ReportScreen, HistoryScreen, AnalyticsScreen, RecommendationsScreen, ProfileScreen } from './components/AppScreens';
 
 function AppRouter() {
-  const { state } = useApp();
-  const { screen } = state;
+  const { state, dispatch } = useApp();
+  const { screen, user } = state;
+
+  // ── History Sync ──────────────────────────────────────────────────────────
+  useEffect(() => {
+    // Initial sync: if no history state exists, set the current screen
+    if (!window.history.state) {
+      window.history.replaceState({ screen }, '', '');
+    }
+
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state && event.state.screen) {
+        dispatch({ type: 'SET_SCREEN', screen: event.state.screen });
+      } else {
+        // Fallback if no history state is found
+        dispatch({ type: 'SET_SCREEN', screen: user ? 'dashboard' : 'hero' });
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [dispatch, user]);
+
+  useEffect(() => {
+    // Push new state to history when screen changes (unless it matches current state)
+    if (window.history.state?.screen !== screen) {
+      window.history.pushState({ screen }, '', '');
+    }
+  }, [screen]);
+
+  // ── Auth Guards ───────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (user) {
+      // If logged in, prevent access to landing/auth screens
+      if (['hero', 'login', 'register'].includes(screen)) {
+        dispatch({ type: 'SET_SCREEN', screen: 'dashboard' });
+      }
+    } else {
+      // If not logged in, prevent access to protected app screens
+      const protectedScreens: Screen[] = [
+        'dashboard',
+        'interview_setup',
+        'interview_session',
+        'report',
+        'history',
+        'analytics',
+        'recommendations',
+        'profile',
+      ];
+      if (protectedScreens.includes(screen)) {
+        dispatch({ type: 'SET_SCREEN', screen: 'login' });
+      }
+    }
+  }, [user, screen, dispatch]);
 
   // ── Auth screens ──────────────────────────────────────────────────────────
   if (screen === 'login') return <LoginScreen />;

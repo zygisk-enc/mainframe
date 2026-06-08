@@ -3,7 +3,7 @@
  * Uses simple POST requests with JSON body — no CORS issues.
  */
 
-const BASE = 'http://localhost:8501';
+const BASE = '/api';
 
 async function post(endpoint: string, body: Record<string, any> = {}): Promise<any> {
   const res = await fetch(`${BASE}/${endpoint}`, {
