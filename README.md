@@ -28,27 +28,36 @@ Mainframe is a high-precision career readiness platform designed to simulate pro
 
 ## Installation and Execution
 
-### Backend Configuration
+### One-Click Automation (Recommended)
 
+To launch the backend, frontend, and an ngrok tunnel (for internet access) simultaneously, use the provided startup script:
+
+```bash
+chmod +x run.sh
+./run.sh
+```
+
+This script will automatically clear ports, launch all services, and provide you with a live public link via ngrok.
+
+### Manual Configuration
+
+#### Backend Configuration
 1. Initialize the Python environment:
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    pip install -r requirements.txt
    ```
-
 2. Configure environment variables in a `.env` file:
    ```env
    GEMINI_API_KEY=your_api_key
    ```
-
 3. Initiate the API server:
    ```bash
    python3 app.py
    ```
 
-### Frontend Configuration
-
+#### Frontend Configuration
 1. Install dependencies and start the development server:
    ```bash
    npm install
